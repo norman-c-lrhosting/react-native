@@ -15,7 +15,7 @@ import StyleSheet from '../../StyleSheet/StyleSheet';
 import type {OnChangeEvent} from './RCTSegmentedControlNativeComponent';
 import type {ViewProps} from '../View/ViewPropTypes';
 import RCTSegmentedControlNativeComponent from './RCTSegmentedControlNativeComponent';
-import type {SyntheticEvent} from 'react-native/Libraries/Types/CoreEventTypes';
+import type {SyntheticEvent} from 'react-native/build/Types/CoreEventTypes';
 
 type SegmentedControlIOSProps = $ReadOnly<{|
   ...ViewProps,

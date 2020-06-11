@@ -10,16 +10,16 @@
 
 'use strict';
 
-import type {ViewProps} from 'react-native/Libraries/Components/View/ViewPropTypes';
-import type {ColorValue} from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
+import type {ViewProps} from 'react-native/build/Components/View/ViewPropTypes';
+import type {ColorValue} from 'react-native/build/StyleSheet/StyleSheetTypes';
 import type {
   WithDefault,
   DirectEventHandler,
   Int32,
   Float,
-} from 'react-native/Libraries/Types/CodegenTypes';
-import codegenNativeCommands from 'react-native/Libraries/Utilities/codegenNativeCommands';
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
+} from 'react-native/build/Types/CodegenTypes';
+import codegenNativeCommands from 'react-native/build/Utilities/codegenNativeCommands';
+import codegenNativeComponent from 'react-native/build/Utilities/codegenNativeComponent';
 import * as React from 'react';
 
 type DrawerStateEvent = $ReadOnly<{|

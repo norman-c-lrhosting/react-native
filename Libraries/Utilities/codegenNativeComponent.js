@@ -11,8 +11,8 @@
 
 'use strict';
 
-import type {NativeComponent} from '../../Libraries/Renderer/shims/ReactNative';
-import requireNativeComponent from '../../Libraries/ReactNative/requireNativeComponent';
+import type {NativeComponent} from '../../build/Renderer/shims/ReactNative';
+import requireNativeComponent from '../../build/ReactNative/requireNativeComponent';
 import {UIManager} from 'react-native';
 
 // TODO: import from CodegenSchema once workspaces are enabled

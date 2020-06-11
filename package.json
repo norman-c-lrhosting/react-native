@@ -15,7 +15,7 @@
     "outputDirectory": "reports/junit",
     "outputName": "js-test-results.xml"
   },
-  "main": "Libraries/react-native/react-native-implementation.js",
+  "main": "build/react-native/react-native-implementation.js",
   "files": [
     ".flowconfig",
     "cli.js",
@@ -33,7 +33,7 @@
     "jest",
     "lib",
     "rn-get-polyfills.js",
-    "Libraries",
+    "build",
     "LICENSE",
     "packager",
     "react-native.config.js",
@@ -47,6 +47,7 @@
   ],
   "scripts": {
     "start": "react-native start",
+    "build": "babel Libraries --out-dir build --extensions \".js\" --ignore \"Libraries/**/__mocks__/*\",\"Libraries/**/__tests__/*\"",
     "test": "jest",
     "test-ci": "jest --maxWorkers=2 --ci --reporters=\"default\" --reporters=\"jest-junit\"",
     "flow": "flow",
