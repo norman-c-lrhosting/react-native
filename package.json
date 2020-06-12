@@ -38,6 +38,7 @@
     "packager",
     "Libraries",
     "react-native.config.js",
+    "third-party-podspecs",
     "README.md",
     "local-cli",
     "React-Core.podspec",
