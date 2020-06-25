@@ -51,8 +51,10 @@
     "scripts/packager.sh",
     "scripts/react-native-xcode.sh",
     "template.config.js",
-    "template",
-    "third-party-podspecs"
+    "!template",
+    "third-party-podspecs",
+    "!__mocks__",
+    "!__flowtests__"
   ],
   "scripts": {
     "start": "react-native start",
