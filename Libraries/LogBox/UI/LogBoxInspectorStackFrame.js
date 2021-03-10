@@ -26,6 +26,16 @@ type Props = $ReadOnly<{|
   onPress?: ?(event: PressEvent) => void,
 |}>;
 
+// Attempt to make the paths relative to the project root. 
+// This helps users to disambiguate when they have files with the same name in different folders.
+let projectRoot = '';
+ 
+try {
+  const Constants = require('expo-constants').default;
+  // Expo projects in dev mode (when errors are thrown).
+  projectRoot = ((Constants.manifest || {}).developer || {}).projectRoot;
+} catch {}
+
 function LogBoxInspectorStackFrame(props: Props): React.Node {
   const {frame, onPress} = props;
   const column = frame.column != null && parseInt(frame.column, 10);
@@ -50,7 +60,7 @@ function LogBoxInspectorStackFrame(props: Props): React.Node {
         </Text>
         <Text
           ellipsizeMode="middle"
-          numberOfLines={1}
+          numberOfLines={2}
           style={[styles.location, frame.collapse === true && styles.dim]}>
           {location}
         </Text>
@@ -63,6 +73,22 @@ function getFileName(file) {
   if (file == null) {
     return '<unknown>';
   }
+
+  if (file.match(/https?:\/\//g)) { 
+    const queryIndex = file.indexOf('?');
+    return file.substring(
+      0,
+      queryIndex === -1 ? file.length : queryIndex,
+    );
+  }
+
+  if (projectRoot) {
+    const [,relativePath] = file.split(projectRoot)
+    if (relativePath) {
+      return relativePath;
+    }
+  }
+
   const queryIndex = file.indexOf('?');
   return file.substring(
     file.lastIndexOf('/') + 1,
